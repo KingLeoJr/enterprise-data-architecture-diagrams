@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Portfolio</title>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; font-family: sans-serif; }
+        #img-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        img { max-width: 100%; max-height: 100%; object-fit: contain; transition: opacity 0.3s; }
+        
+        /* Minimal UI that fades out */
+        .ui { position: fixed; z-index: 10; transition: opacity 0.5s ease; opacity: 0.8; }
+        .ui:hover { opacity: 1 !important; }
+        
+        #counter { top: 15px; right: 20px; color: #fff; font-size: 14px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px; }
+        
+        #controls { bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+        button { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 20px; cursor: pointer; border-radius: 20px; font-size: 14px; backdrop-filter: blur(5px); }
+        button:hover { background: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+
+    <div id="counter" class="ui">1 / 23</div>
+    
+    <div id="img-container">
+        <img id="slide-img" src="" alt="Architecture Diagram">
+    </div>
+    
+    <div id="controls" class="ui">
+        <button onclick="prev()">← Prev</button>
+        <button onclick="togglePlay()" id="playBtn">▶ Play</button>
+        <button onclick="toggleFS()">⛶ Fullscreen</button>
+        <button onclick="next()">Next →</button>
+    </div>
+
+    <script>
+        const images = [
+            "D:/Downloads/1787839505.png", "D:/Downloads/1787851806.png", "D:/Downloads/1787851781.png",
+            "D:/Downloads/1787851756.png", "D:/Downloads/1787851729.png", "D:/Downloads/1787851704.png",
+            "D:/Downloads/1787851679.png", "D:/Downloads/1787851652.png", "D:/Downloads/1787850718.png",
+            "D:/Downloads/1787850557.png", "D:/Downloads/1787850099.png", "D:/Downloads/1787850072.png",
+            "D:/Downloads/1787850047.png", "D:/Downloads/1787850020.png", "D:/Downloads/1787849996.png",
+            "D:/Downloads/1787849973.png", "D:/Downloads/1787849944.png", "D:/Downloads/1787849699.png",
+            "D:/Downloads/1787848613.png", "D:/Downloads/1787846949.png", "D:/Downloads/1787845696.png",
+            "D:/Downloads/1787844140.png", "D:/Downloads/1787843100.png"
+        ];
+
+        let current = 0;
+        let isPlaying = false;
+        let playInterval;
+        let hideTimer;
+
+        function show() {
+            document.getElementById('slide-img').src = images[current];
+            document.getElementById('counter').innerText = `${current + 1} / ${images.length}`;
+        }
+
+        function next() { current = (current + 1) % images.length; show(); resetHide(); }
+        function prev() { current = (current - 1 + images.length) % images.length; show(); resetHide(); }
+        
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            document.getElementById('playBtn').innerText = isPlaying ? '⏸ Pause' : '▶ Play';
+            if (isPlaying) {
+                playInterval = setInterval(next, 5000);
+            } else {
+                clearInterval(playInterval);
+            }
+        }
+
+        function toggleFS() {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+            else document.exitFullscreen();
+        }
+
+        // Auto-hide UI for unblocked view
+        function resetHide() {
+            document.querySelectorAll('.ui').forEach(el => el.style.opacity = '1');
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => {
+                if (!isPlaying) document.querySelectorAll('.ui').forEach(el => el.style.opacity = '0');
+            }, 3000);
+        }
+
+        document.addEventListener('mousemove', resetHide);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') next();
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+            if (e.key === 'f') toggleFS();
+        });
+
+        show();
+        resetHide();
+    </script>
+</body>
+</html>
