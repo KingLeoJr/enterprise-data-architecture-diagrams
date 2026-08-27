@@ -223,12 +223,6 @@ Special thanks to the data architecture community for continuous learning and kn
 
 ---
 
-## 📈 Repository Stats
-
-[![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)]()
-[![Forks](https://img.shields.io/github/forks/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)]()
-[![Watchers](https://img.shields.io/github/watchers/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)]()
-[![Issues](https://img.shields.io/github/issues/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)]()
 
 ---
 
@@ -290,5 +284,3 @@ open-source, free-resources, educational-resources, learning-resources, document
 Made with ❤️ for the Data Architecture Community
 
 </div>
-
-## 📂 Repository Structure
