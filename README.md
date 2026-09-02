@@ -61,16 +61,6 @@ This repository contains **23 high-quality, production-ready architecture diagra
 
 ##  Diagram Details
 
-Each diagram includes:
-- ✅ **Multi-layered architecture** with clear component separation
-- ✅ **Professional color coding** for visual clarity
-- ✅ **Cross-cutting concerns** (Security, Governance, DevOps)
-- ✅ **Specific tools & technologies** named
-- ✅ **Data flow relationships** clearly marked
-- ✅ **Industry standards** and best practices
-- ✅ **High-resolution PNG format** (suitable for presentations)
-
----
 
 ## 🚀 Quick Start
 
@@ -194,12 +184,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-##  Contact & Support
-
-- **💼 LinkedIn**: [Your LinkedIn Profile]
-- ** Twitter**: [Your Twitter Handle]
-- ** Email**: [Your Email]
-
 **Have questions?** Open an issue in this repository and I'll get back to you ASAP!
 
 ---
@@ -213,13 +197,6 @@ Special thanks to the data architecture community for continuous learning and kn
 - Real-world enterprise implementations
 
 ---
-
-## 🔗 Related Resources
-
-- [Data Architecture Best Practices](https://example.com)
-- [Modern Data Stack Guide](https://example.com)
-- [Data Governance Framework](https://example.com)
-- [Enterprise Architecture Patterns](https://example.com)
 
 ---
 
